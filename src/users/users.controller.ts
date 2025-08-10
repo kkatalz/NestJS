@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { ParseIntPipe, ValidationPipe } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
+import { CreateUserDto, UserRole } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
 @Controller('users')
@@ -18,10 +18,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Get() // GET /users or /users?role=value&age=28
-  findAll(
-    @Query('role') role?: 'INTERN' | 'ENGINEER' | 'ADMIN',
-    @Query('age') age?: number,
-  ) {
+  findAll(@Query('role') role?: UserRole, @Query('age') age?: number) {
     return this.usersService.findAll(role);
   }
 
