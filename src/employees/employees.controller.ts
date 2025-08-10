@@ -9,7 +9,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { EmployeesService } from './employees.service';
-import { Prisma } from 'generated/prisma';
+import { Prisma } from '@prisma/client';
 import { queryObjects } from 'v8';
 import { UserRole } from '../users/dto/create-user.dto';
 
