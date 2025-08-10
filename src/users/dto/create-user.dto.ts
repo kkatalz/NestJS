@@ -15,5 +15,5 @@ export class CreateUserDto {
   email: string;
 
   @IsEnum(UserRole, { message: 'Valid role required' })
-  role: 'INTERN' | 'ENGINEER' | 'ADMIN';
+  role: UserRole;
 }
